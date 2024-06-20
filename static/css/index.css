@@ -1,0 +1,19 @@
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.gallery a {
+    max-width: 300px;
+    max-height: 200px;
+    text-decoration: none;
+    color: unset;
+    margin: 10px;
+}
+
+.gallery a > img {
+    max-width: 300px;
+    max-height: 200px;
+    object-fit: cover;
+}

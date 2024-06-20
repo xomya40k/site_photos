@@ -1,0 +1,69 @@
+.photo-container {
+    width: 80%;
+    max-width: 600px;
+    margin: 20px 0;
+}
+.photo-container img {
+    width: 100%;
+    height: auto;
+}
+.caption {
+    text-align: start;
+    margin-bottom: 20px;
+}
+.comments {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+.comments h2 {
+    margin-top: 0;
+}
+.comment {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.author {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+    justify-content: left;
+    padding-bottom: 15px;
+}
+
+.author> .user-avatar + a {
+    text-decoration: none;
+    color: rgb(0, 125, 255);
+}
+
+.author> .user-avatar, .comment > .user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    object-fit: cover;
+}
+
+.comment > .user-avatar + div {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-left: 15px;
+    align-items: flex-start;
+}
+
+.comment > .user-avatar + div a {
+    text-decoration: none;
+    color: rgb(0, 125, 255);
+}
+
+.comment > .user-avatar + div p {
+    margin-inline: 0;
+    margin-block: 0;
+}

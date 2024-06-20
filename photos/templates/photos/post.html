@@ -1,0 +1,30 @@
+{% extends 'photos/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/post.css' %}">
+{% endblock %}
+
+{% block main %}
+    <div class="photo-container">
+        <div class="author">
+            <img src="static/images/examples/{{ post.author.image }}" alt="User photo" class="user-avatar">
+            <a href="{{ post.author.id }}">{{ post.author.username }}</a>
+        </div>
+        <img src="static/images/examples/{{ post.image }}" alt="Photo">
+        <p class="caption">{{ post.description }}</p>
+    </div>
+    <div class="comments">
+        <h2>Comments</h2>
+        {% for comment in post.comments %}
+        <div class="comment">
+            <img src="static/images/examples/{{ comment.author.image }}" alt="User photo" class="user-avatar">
+            <div>
+                <a href="{{ comment.author.id }}">{{ comment.author.username }}</a>
+                <p>{{ comment.text }}</p>
+            </div>
+        </div>
+        {% endfor %}
+        <!-- Add more comments as needed -->
+    </div>
+{% endblock %}

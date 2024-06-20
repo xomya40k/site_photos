@@ -1,0 +1,22 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    {% block css %} {% endblock %}
+</head>
+<body>
+    <header>
+        <h1>{{ title }}</h1>
+        <button>{% if is_authed %} Logout {% else %} Login {% endif %}</button>
+    </header>
+    <main>
+        {% block main %} {% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Photo site. All rights reserved.</p>
+    </footer>
+</body>
+</html>
