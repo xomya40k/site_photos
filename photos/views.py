@@ -1,33 +1,12 @@
 from django.shortcuts import render
-
+from photos.models import Post
 
 # Create your views here.
 def index(request):
     context = {
         'title': 'Latest Photos',
         'is_authed': False,
-        'posts': [
-            {
-                'id': '1',
-                'image': '30b2375593ffa167fc4b8870a40a48b9.jpg'
-            },
-            {
-                'id': '2',
-                'image': 'DglrT5Ew88o.jpg'
-            },
-            {
-                'id': '3',
-                'image': 'e4866c83393a0eaeac315dc6a2c1b656.jpg'
-            },
-            {
-                'id': '4',
-                'image': 'iuCkR.jpg'
-            },
-            {
-                'id': '5',
-                'image': 'sample_eff03ea4835bb5d50ceb533611cd6b3a.jpg',
-            },
-        ],
+        'posts': Post.objects.all(),
     }
     return render(request, 'photos/index.html', context)
 
