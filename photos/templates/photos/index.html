@@ -8,7 +8,7 @@
 {% block main %}
     <div class="gallery">
         {% for post in posts %}
-        <a href="{% url 'post' %}/{{ post.id }}"><img src="{{ post.photo.medium.url }}" alt="Image 1"></a>
+        <a href="{% url 'posts:post' %}id={{ post.id }}"><img src="{{ post.photo.medium.url }}" alt="{{ post.photo.url }}"></a>
         {% endfor %}
     </div>
 {% endblock %}
