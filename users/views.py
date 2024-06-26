@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponseRedirect
 from users.models import User
-from users.forms import UserLoginForm, UserRegistrationForm
+from users.forms import UserLoginForm, UserRegistrationForm, UserProfileForm
 from django.contrib import auth
 from django.urls import reverse
 from django.core.exceptions import ValidationError
@@ -18,7 +18,7 @@ def login(request):
                 return HttpResponseRedirect(reverse('index'))
     else:
         form = UserLoginForm()
-        
+
     context = {
         'title': 'Login',
         'is_authed': False,
@@ -41,3 +41,19 @@ def registration(request):
         'form':form,
     }
     return render(request, 'users/registration.html', context)
+
+def profile_edit(request):
+    if request.method == 'POST':
+        form = UserProfileForm(data=request.POST, files=request.FILES, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('users:profile_edit'))
+    else:
+        form = UserProfileForm(instance=request.user)
+        
+    context = {
+        'title': 'Profile Settings',
+        'is_authed': False,
+        'form': form,
+    }
+    return render(request, 'users/profile_edit.html', context)

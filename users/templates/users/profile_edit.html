@@ -1,0 +1,25 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/profile_edit.css' %}">
+{% endblock %}
+
+{% block main %}
+    <form class="profile-settings" action="{% url 'users:profile_edit' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+            {{ form.non_field_errors }}
+        {% endif %}
+        <div class="img-container">
+            <img src="{% if user.photo %} {{ user.photo.medium.url }} {% else %} {% static 'images/examples/30b2375593ffa167fc4b8870a40a48b9.jpg' %} {% endif %}"></img>
+            {{ form.photo }}
+        </div>
+        {{ form.username }}
+        {{ form.email }}
+        {{ form.first_name }}
+        {{ form.last_name }}
+        {{ form.description}}
+        <input type="submit" value="Save Changes">
+    </form>
+{% endblock %}

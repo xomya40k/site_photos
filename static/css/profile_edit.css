@@ -1,0 +1,72 @@
+.profile-settings {
+    width: 400px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+.profile-settings h2 {
+    text-align: center;
+    margin-top: 0;
+}
+.profile-settings input[type="text"],
+.profile-settings input[type="email"],
+.profile-settings textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.profile-settings input[type="file"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.profile-settings input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.profile-settings textarea {
+    height: 125px;
+    resize: none;
+}
+
+.profile-settings .img-container {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-direction: column;
+}
+
+.profile-settings .img-container > img {
+    width: 50%;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.errorlist {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+    list-style-type: none;
+}
+
+.errorlist li {
+    color: orangered;
+    font-family: emoji;
+    margin-bottom: 10px;
+}

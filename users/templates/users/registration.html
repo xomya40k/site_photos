@@ -8,12 +8,8 @@
 {% block main %}
     <form class="registration-form" action="{% url 'users:registration' %}" method="post">
         {% csrf_token %}
-        {% if form.errors.values|length > 0 %}
-        <ul class="errorlist">
-            {% for error in form.errors.values %}
-            <li>{{ error }}</li>
-            {% endfor %}
-        </ul>
+        {% if form.non_field_errors %}
+            {{ form.non_field_errors }}
         {% endif %}
         {{ form.username }}
         {{ form.email }}
