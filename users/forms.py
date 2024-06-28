@@ -46,7 +46,6 @@ class UserProfileForm(UserChangeForm):
     username = forms.CharField(widget=forms.TextInput(attrs={
         'type': 'text',
         'placeholder': 'Username',
-        'autocomplete': 'username',
     }))
     email = forms.CharField(widget=forms.EmailInput(attrs={
         'type': 'email',

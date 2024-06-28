@@ -6,11 +6,26 @@
 {% endblock %}
 
 {% block main %}
+    {% if messages %}
+    <div class="alert-container">
+        <ul class="messagelist">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        <button onclick="this.parentElement.remove()"></button>
+    </div>
+    {% endif %}
+    {% if form.errors %}
+        {% for erorr in form.errors.values %}
+        <div class="alert-container">
+            {{ erorr }}
+            <button onclick="this.parentElement.remove()"></button>
+        </div>    
+        {% endfor %}
+    {% endif %}
     <form class="profile-settings" action="{% url 'users:profile_edit' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {% if form.non_field_errors %}
-            {{ form.non_field_errors }}
-        {% endif %}
         <div class="img-container">
             <img src="{% if user.photo %} {{ user.photo.medium.url }} {% else %} {% static 'images/examples/30b2375593ffa167fc4b8870a40a48b9.jpg' %} {% endif %}"></img>
             {{ form.photo }}

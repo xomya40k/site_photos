@@ -5,8 +5,7 @@ from photos.models import Post
 def index(request):
     context = {
         'title': 'Latest Photos',
-        'is_authed': False,
-        'posts': Post.objects.all(),
+        'posts': Post.objects.order_by("created_at").reverse(),
     }
     return render(request, 'photos/index.html', context)
 

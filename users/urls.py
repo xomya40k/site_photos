@@ -16,12 +16,13 @@ Including another URLconf
 """
 
 from django.urls import path
-from users.views import login, registration, profile_edit
+from users.views import login, logout, registration, profile_edit
 
 app_name = 'users'
 
 urlpatterns = [
     path('login/', login, name='login'),
     path('registration/', registration, name='registration'),
-    path('profile_edit', profile_edit, name='profile_edit')
+    path('profile_edit', profile_edit, name='profile_edit'),
+    path('logout/', logout, name='logout'),
 ]

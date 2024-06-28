@@ -5,11 +5,14 @@
 }
 
 .gallery a {
+    display: flex;
     max-width: 300px;
     max-height: 200px;
+    height: fit-content;
     text-decoration: none;
     color: unset;
     margin: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 }
 
 .gallery a > img {

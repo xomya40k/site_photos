@@ -11,9 +11,15 @@
     <header>
         <h1>{{ title }}</h1>
         <nav>
-            <a {% if not is_authed %} href="{% url 'users:login' %}" {% endif %}><button>{% if is_authed %} Logout {% else %} Login {% endif %}</button></a>
-            {% if not is_authed %}
-            <a href="{% url 'users:registration' %}"><button>Sign up</button></a>
+            {% if user.is_authenticated %}
+            <a href="{% url 'users:profile_edit' %}">Profile</a>
+            <a href="{% url 'users:logout' %}">Logout</a>
+            {% else %}
+            <a href="{% url 'users:login' %}">Login</a>
+            <a href="{% url 'users:registration' %}">Sign up</a>
+            {% endif %}
+            {% if user.is_superuser or user.is_staff %}
+            <a href="{% url 'admin:index' %}">Admin panel</a>
             {% endif %}
         </nav>
     </header>
