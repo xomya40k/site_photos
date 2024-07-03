@@ -21,5 +21,5 @@ from photos.views import post
 app_name = 'photos'
 
 urlpatterns = [
-    path('', post, name='post'),
+    path('post/<uuid:post_id>', post, name='post'),
 ]

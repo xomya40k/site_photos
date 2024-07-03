@@ -1,5 +1,5 @@
 .photo-container {
-    width: 80%;
+    width: 100%;
     max-width: 600px;
     margin: 20px 0;
 }
@@ -14,7 +14,6 @@
 .comments {
     width: 100%;
     max-width: 600px;
-    margin-bottom: 20px;
 }
 .comments h2 {
     margin-top: 0;
@@ -27,6 +26,10 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: flex-start;
+}
+
+.comment:last-child {
+    margin-bottom: 0;
 }
 
 .author {
@@ -43,7 +46,9 @@
     color: rgb(0, 125, 255);
 }
 
-.author> .user-avatar, .comment > .user-avatar {
+.author> .user-avatar, 
+.comment > .user-avatar, 
+.new-comment .user-avatar {
     width: 50px;
     height: 50px;
     border-radius: 25px;
@@ -66,4 +71,42 @@
 .comment > .user-avatar + div p {
     margin-inline: 0;
     margin-block: 0;
+}
+
+.new-comment {
+    border: 1px solid #ddd;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.new-comment form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.new-comment form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    height: fit-content;
+    resize: none;
+}
+
+.new-comment form input[type="submit"] {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
